@@ -8,9 +8,10 @@
         (plus 10)  => 10
         (plus 10 20) => 30
         (plus 10 20 30 40 50) => 150))
+;;The test is good
 
 (facts "about socialist plus"
-       (fact "it subsidized fewer than two elements" 
+       (fact "it subsidized fewer than two elements"
         )
        (fact "it does nothing with two elements. Except add."
 )
