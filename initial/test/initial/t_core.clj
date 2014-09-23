@@ -8,7 +8,12 @@
         (plus 10)  => 10
         (plus 10 20) => 30
         (plus 10 20 30 40 50) => 150))
-;;The test is good
+(plus 0)
+(plus 10)
+(plus 10 20)
+(plus 10 20 30 40 50)
+(plus -10 20)
+
 
 (facts "about socialist plus"
        (fact "it subsidized fewer than two elements"
@@ -17,6 +22,10 @@
 )
        (fact "it taxes the result if there are more than 2 elements."
              ))
+(socialist-plus 10)
+(socialist-plus 20 30)
+(socialist-plus 20 30 50)
+(socialist-plus -20 30)
 
 (facts "about capitalist plus"
        (fact "it taxes fewer than two elements"
@@ -25,14 +34,24 @@
              )
        (fact "it subsidizes the result if there are more than 2 elements."
              ))
+(capitalist-plus 20 )
+(capitalist-plus 20 30)
+(capitalist-plus 30 40 50)
+(capitalist-plus -30 40)
+
 
 (facts "about communist plus"
   (fact "it only returns 10."
         ))
+(communist-plus 30 40)
+(communist-plus 40 50 60)
 
 (facts "about political extreemist plus"
   (fact "it multiplies instead of adds."
         ))
+(political-extreemist-plus 3 4)
+(political-extreemist-plus 4 5 6)
+(political-extreemist-plus -5 6 7)
 
 
 (facts "about this lab"
