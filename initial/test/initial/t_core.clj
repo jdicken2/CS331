@@ -4,56 +4,40 @@
 
 (facts "about plus"
   (fact "it adds numbers."
-        (plus)   => 0
-        (plus 10)  => 10
+        (plus) => 0
+        (plus 10) => 10
         (plus 10 20) => 30
         (plus 10 20 30 40 50) => 150))
-(plus 0)
-(plus 10)
-(plus 10 20)
-(plus 10 20 30 40 50)
-(plus -10 20)
 
 
 (facts "about socialist plus"
        (fact "it subsidized fewer than two elements"
-        )
+        (socialist-plus 10) => 11)
        (fact "it does nothing with two elements. Except add."
-)
+        (socialist-plus 20 30) => 50)
        (fact "it taxes the result if there are more than 2 elements."
-             ))
-(socialist-plus 10)
-(socialist-plus 20 30)
-(socialist-plus 20 30 50)
-(socialist-plus -20 30)
+        (socialist-plus 10 20 30) => 59))
+
+
 
 (facts "about capitalist plus"
        (fact "it taxes fewer than two elements"
-             )
+             (capitalist-plus 10)=> 9)
        (fact "it does nothing with two elements. Except add."
-             )
+             (capitalist-plus 20 30)=> 50)
        (fact "it subsidizes the result if there are more than 2 elements."
-             ))
-(capitalist-plus 20 )
-(capitalist-plus 20 30)
-(capitalist-plus 30 40 50)
-(capitalist-plus -30 40)
+             (capitalist-plus 10 20 30)=> 61))
+
 
 
 (facts "about communist plus"
   (fact "it only returns 10."
-        ))
-(communist-plus 30 40)
-(communist-plus 40 50 60)
+    (communist-plus 20 30)=> 10))
 
 (facts "about political extreemist plus"
   (fact "it multiplies instead of adds."
-        ))
-(political-extreemist-plus 3 4)
-(political-extreemist-plus 4 5 6)
-(political-extreemist-plus -5 6 7)
+        (political-extreemist-plus 20 30)=> 600 ))
 
 
 (facts "about this lab"
-       (fact "the student never bothered to start it."
-       true => false))
+       true)
