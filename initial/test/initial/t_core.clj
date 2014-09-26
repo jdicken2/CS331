@@ -28,16 +28,16 @@
        (fact "it subsidizes the result if there are more than 2 elements."
              (capitalist-plus 10 20 30)=> 61))
 
-
-
 (facts "about communist plus"
   (fact "it only returns 10."
     (communist-plus 20 30)=> 10))
 
 (facts "about political extreemist plus"
   (fact "it multiplies instead of adds."
-        (political-extreemist-plus 20 30)=> 600 ))
-
+        (political-extreemist-plus 20 30)=> 600 )
+        (political-extreemist-plus)=> 1
+        (political-extreemist-plus 10 20 30)=> 6000
+        (political-extreemist-plus 5 4 6 7)=> 840)
 
 (facts "about this lab"
        true)

@@ -60,7 +60,4 @@
   (apply * xx))
 
 (political-extreemist-plus 20 10)
-
-
-
 (political-extreemist-plus 20 30)
