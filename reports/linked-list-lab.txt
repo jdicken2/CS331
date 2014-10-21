@@ -1,12 +1,12 @@
 Lab report for Linked List Lab - jdicken2
-Timestamp: 2014-10-21 03:16:07
+Timestamp: 2014-10-21 13:02:48
 
 |  :scenario |                                :title |                   :result | :score |
 |------------+---------------------------------------+---------------------------+--------|
-|    working | Test student code vs instructor tests |                      Fail |     43 |
+|    working | Test student code vs instructor tests |                      Fail |     39 |
 | qualifying | Test student tests vs instructor code |                      Fail |      4 |
 | qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
-|      total |                           Total Score |                           |     47 |
+|      total |                           Total Score |                           |     43 |
 
 Details:
 
@@ -14,14 +14,84 @@ Details:
 ** Details for Test student code vs instructor tests
 
 
-FAIL "about `delete` - it removes elements properly." at (t_core.clj:59)
-    Expected: {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr {:car 1, :cdr }}}}::linked_list_lab.core.Cons
-      Actual: {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr }}}::linked_list_lab.core.Cons
+FAIL "about `delete-all` - it removes elements properly." at (t_core.clj:75)
+    Expected: {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr }}}::linked_list_lab.core.Cons
+      Actual: clojure.lang.ArityException: Wrong number of args (1) passed to: core$delete-all-cons
+              linked_list_lab.core$delete_all_cons.invoke(core.clj:124)
+              linked_list_lab.core$delete_all.invoke(core.clj:131)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7358$fn__7359$fn__7362.invoke(t_core.clj:75)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7358$fn__7359.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7358.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355.invoke(t_core.clj:71)
 
-FAIL "about `delete` - it removes elements properly." at (t_core.clj:60)
-    Expected: {:car 1, :cdr {:car 8, :cdr {:car 5, :cdr {:car 1, :cdr }}}}::linked_list_lab.core.Cons
-      Actual: {:car 1, :cdr {:car 8, :cdr {:car 1, :cdr }}}::linked_list_lab.core.Cons
-FAILURE: 2 checks failed.  (But 43 succeeded.)
+FAIL "about `delete-all` - it removes elements properly." at (t_core.clj:76)
+    Expected: {:car 1, :cdr {:car 8, :cdr {:car 1, :cdr }}}::linked_list_lab.core.Cons
+      Actual: clojure.lang.ArityException: Wrong number of args (1) passed to: core$delete-all-cons
+              linked_list_lab.core$delete_all_cons.invoke(core.clj:124)
+              linked_list_lab.core$delete_all_cons.invoke(core.clj:125)
+              linked_list_lab.core$delete_all.invoke(core.clj:131)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7358$fn__7359$fn__7364.invoke(t_core.clj:76)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7358$fn__7359.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7358.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355.invoke(t_core.clj:71)
+
+FAIL "about `delete-all` - it removes elements properly." at (t_core.clj:77)
+    Expected: {:car 1, :cdr {:car 5, :cdr {:car 5, :cdr {:car 1, :cdr }}}}::linked_list_lab.core.Cons
+      Actual: clojure.lang.ArityException: Wrong number of args (1) passed to: core$delete-all-cons
+              linked_list_lab.core$delete_all_cons.invoke(core.clj:124)
+              linked_list_lab.core$delete_all_cons.invoke(core.clj:125)
+              linked_list_lab.core$delete_all_cons.invoke(core.clj:125)
+              linked_list_lab.core$delete_all.invoke(core.clj:131)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7358$fn__7359$fn__7366.invoke(t_core.clj:77)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7358$fn__7359.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7358.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355.invoke(t_core.clj:71)
+
+FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:81)
+    Expected: 3
+      Actual: clojure.lang.ArityException: Wrong number of args (1) passed to: core$delete-all-cons
+              linked_list_lab.core$delete_all_cons.invoke(core.clj:124)
+              linked_list_lab.core$delete_all.invoke(core.clj:131)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7372$fn__7373$fn__7376.invoke(t_core.clj:81)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7372$fn__7373.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7372.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355.invoke(t_core.clj:71)
+
+FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:82)
+    Expected: 3
+      Actual: clojure.lang.ArityException: Wrong number of args (1) passed to: core$delete-all-cons
+              linked_list_lab.core$delete_all_cons.invoke(core.clj:124)
+              linked_list_lab.core$delete_all_cons.invoke(core.clj:125)
+              linked_list_lab.core$delete_all.invoke(core.clj:131)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7372$fn__7373$fn__7378.invoke(t_core.clj:82)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7372$fn__7373.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7372.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355.invoke(t_core.clj:71)
+
+FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:83)
+    Expected: 4
+      Actual: clojure.lang.ArityException: Wrong number of args (1) passed to: core$delete-all-cons
+              linked_list_lab.core$delete_all_cons.invoke(core.clj:124)
+              linked_list_lab.core$delete_all_cons.invoke(core.clj:125)
+              linked_list_lab.core$delete_all_cons.invoke(core.clj:125)
+              linked_list_lab.core$delete_all.invoke(core.clj:131)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7372$fn__7373$fn__7380.invoke(t_core.clj:83)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7372$fn__7373.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357$fn__7372.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356$fn__7357.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355$fn__7356.invoke(t_core.clj:71)
+              linked_list_lab.t_core$eval7355.invoke(t_core.clj:71)
+FAILURE: 6 checks failed.  (But 39 succeeded.)
 Subprocess failed
 
 
