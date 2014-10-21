@@ -52,10 +52,37 @@
       (-> (insert-ordered nulist 9) :data) => (list-to-cons '(1 5 8 9))
       (-> (insert-ordered nulist 5) :data) => (list-to-cons '(1 5 5 8)))))
 
-(facts "about `delete`")
+(facts "about `delete`"
+  (let [nulist (List. (Cons. 1 (Cons. 5 (Cons. 8 (Cons. 8 nil)))) 4)]
+   (fact "Does nothing if nil"
+   (delete 5  (List. nil 0)) => (List. nil 0))
+   (fact "Deletes only one element"
+    (:size (delete 1 nulist)) => 3
+    (:data (delete 1 nulist)) => (list-to-cons '(5 8 8)))
+   (fact "Deletes nothing if the element is not present"
+   (:size (delete 9 nulist)) => 4
+   (:data (delete 9 nulist)) => (list-to-cons '(1 5 8 8)))
+   (fact "Deletes the element if there is only one"
+   (:size (delete 8 nulist)) => 3
+   (:data (delete 8 nulist)) => (list-to-cons '(1 5 8)))))
 
-(facts "about `delete-all`")
+
+
+
+(facts "about `delete-all`"
+       (let [nulist (List. (Cons. 1 (Cons. 5 (Cons. 8 (Cons. 8 nil)))) 4)]
+   (fact "Does nothing if nil"
+   (delete 5  (List. nil 0)) => (List. nil 0))
+   (fact "Deletes only one element"
+    (:size (delete-all 1 nulist)) => 3
+    (:data (delete-all 1 nulist)) => (list-to-cons '(c5 8 8)))
+   (fact "Deletes nothing if the element is not present"
+   (:size (delete-all 9 nulist)) => 4
+   (:data (delete-all 9 nulist)) => (list-to-cons '(1 5 8 8)))
+   (fact "Deletes the element if there is only one"
+   (:size (delete-all 8 nulist)) => 2
+   (:data (delete-all 8 nulist)) => (list-to-cons '(1 5)))))
 
 (facts "about this lab"
   (fact "the student never started.  Fix this `facts` from."
-    (+ 10 20) => 42))
+    (+ 10 20) => 30))

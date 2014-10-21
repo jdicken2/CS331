@@ -35,14 +35,17 @@
 ;; Test broke-2 will forget to do the cons.
 ;; Test broke-3 will replace the cons and not point to the next one.
 
-(defn insert-front 
+;;Takes list as argument, returns list as argument.
+;;Inserts something at front of the list.
+(defn insert-front
   "Insert an element at the beginning of the list."
   [{:keys [data size]} new-elt]
-  (List. (Cons. new-elt data) (+ 1 size))) 
+  (List. (Cons. new-elt data) (+ 1 size)))
 
 ;; Here are some utility functions that convert Clojure lists to
 ;; our Cons. record, and vice-versa.  The broke versions will not
 ;; mess with these.
+;; Only returns data part of linked list, takes  list (not cons) as argument.
 
 (defn list-to-cons
   [xx]
@@ -51,7 +54,7 @@
 
 (defn cons-to-list
   [xx]
-  (cond (nil? xx)   '() 
+  (cond (nil? xx)   '()
         :else       (cons (:car xx) (cons-to-list (:cdr xx)))))
 
 ;; The `insert-sorted` function assumes that the elements are orderable
@@ -59,6 +62,7 @@
 
 ;; Test broke-4 will use `(Cons. elt (:cdr xx))` in the third case.
 ;; Test broke-5 will use `(Cons. (:car xx) nil)` in the second case.
+;; Returns size of the list, returns big list.
 
 (defn insert-ordered-cons
   "Insert the element `elt` into an ordered `Cons.` chain.
@@ -67,11 +71,16 @@ This is used by `insert-ordered`."
   (cond (empty? xx) (Cons. elt nil)
         (> elt (:car xx)) (Cons. (:car xx) (insert-ordered-cons elt (:cdr xx)))
         :fine-be-that-way (Cons. elt xx)))
+;;Inserting into ordered list, insert into cons.
+;;
 
 (defn insert-ordered
   "Insert an element into an ordered list."
   [{:keys [data size]} new-elt]
   (List. (insert-ordered-cons new-elt data) (+ size 1)))
+;;Uses list, not cons.
+;;Returns updated list.
+;;uses insert ordered cons.
 
 ;; The `delete` function will delete one element from the list.
 
@@ -79,9 +88,30 @@ This is used by `insert-ordered`."
 ;; Test broke-7 will forget to decrement the size.
 ;; Test broke-8 will always decrement the size, even if the element is not found.
 
+(defn delete-cons
+  [elt xx]
+  (cond (empty? xx) nil
+        (= elt (:car xx)) (delete-cons elt (:cdr xx))
+        :else (Cons. (:car xx) (delete-cons elt (:cdr xx)))))
+
+
 (defn delete
   "Delete `elt` from `xx`."
-  [elt xx])
+  [elt xx]
+  (if (empty? (:data xx)) (List. nil 0)
+  (let [answer (delete-cons elt (:data xx))]
+    (if (= answer (:data xx)) xx
+    (List. answer (- (:size xx) 1)))
+    )))
+
+
+
+
+;;Uses helper function, delete-cons
+;;break it up, uses different functions.
+;;takes in list as argument, pass in list and element.
+;;First instance of the list, deletes data, update the size, decrement the size after you're done.
+
 
 ;; The `delete-all` function will delete all copies of elt from xx.
 
@@ -91,4 +121,11 @@ This is used by `insert-ordered`."
 
 (defn delete-all
   "Delete all occurrences of `elt` from `xx`."
-  [elt xx])
+  [elt xx]
+  (if (empty? (:data xx)) (List. nil 0)
+  (let [answer (delete-cons elt (:data xx))]
+    (if (= answer (:data xx)) xx
+    (List. answer (count (cons-to-list answer)))
+    ))))
+  ;;Delete all instances of that element.
+;;know how many elements you delete, then delete.
