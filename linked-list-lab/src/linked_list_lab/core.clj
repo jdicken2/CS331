@@ -91,9 +91,8 @@ This is used by `insert-ordered`."
 (defn delete-cons
   [elt xx]
   (cond (empty? xx) nil
-        (= elt (:car xx)) (delete-cons elt (:cdr xx))
+        (= elt (:car xx)) (:cdr xx)
         :else (Cons. (:car xx) (delete-cons elt (:cdr xx)))))
-
 
 (defn delete
   "Delete `elt` from `xx`."
@@ -119,11 +118,17 @@ This is used by `insert-ordered`."
 ;; Test broke-10 will decrement the count instead of properly subtracting the
 ;;      number of deletions.
 
+(defn delete-all-cons
+  [elt xx]
+  (cond (empty? xx) nil
+        (= elt (:car xx)) (delete-all-cons (:cdr xx))
+        :else (Cons. (:car xx) (delete-all-cons elt (:cdr xx)))))
+
 (defn delete-all
   "Delete all occurrences of `elt` from `xx`."
   [elt xx]
   (if (empty? (:data xx)) (List. nil 0)
-  (let [answer (delete-cons elt (:data xx))]
+  (let [answer (delete-all-cons elt (:data xx))]
     (if (= answer (:data xx)) xx
     (List. answer (count (cons-to-list answer)))
     ))))
