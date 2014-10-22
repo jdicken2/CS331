@@ -1,5 +1,5 @@
 Lab report for Linked List Lab - jdicken2
-Timestamp: 2014-10-21 19:06:26
+Timestamp: 2014-10-21 21:36:07
 
 |  :scenario |                                :title |                   :result | :score |
 |------------+---------------------------------------+---------------------------+--------|
@@ -19,8 +19,8 @@ All checks (45) succeeded.
 ** Details for Test student tests vs instructor code
 
 
-FAIL "about `delete-all` - Deletes only one element" at (t_core.clj:78)
-    Expected: {:car c5, :cdr {:car 8, :cdr {:car 8, :cdr }}}::linked_list_lab.core.Cons
-      Actual: {:car 5, :cdr {:car 8, :cdr {:car 8, :cdr }}}::linked_list_lab.core.Cons
+FAIL "about this lab - the student never started.  Fix this `facts` from." at (t_core.clj:85)
+    Expected: 15
+      Actual: 30
 FAILURE: 1 check failed.  (But 39 succeeded.)
 Subprocess failed
