@@ -1,0 +1,26 @@
+Lab report for Linked List Lab - jdicken2
+Timestamp: 2014-10-21 23:37:30
+
+|  :scenario |                                :title |                   :result | :score |
+|------------+---------------------------------------+---------------------------+--------|
+|    working | Test student code vs instructor tests |                      Pass |     45 |
+| qualifying | Test student tests vs instructor code |                      Fail |      4 |
+| qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
+|      total |                           Total Score |                           |     49 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+All checks (45) succeeded.
+
+
+** Details for Test student tests vs instructor code
+
+
+FAIL "about this lab - the student never started.  Fix this `facts` from." at (t_core.clj:85)
+    Expected: 15
+      Actual: 30
+FAILURE: 1 check failed.  (But 39 succeeded.)
+Subprocess failed

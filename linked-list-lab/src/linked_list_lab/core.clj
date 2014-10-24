@@ -35,10 +35,10 @@
 ;; Test broke-2 will forget to do the cons.
 ;; Test broke-3 will replace the cons and not point to the next one.
 
-(defn insert-front 
+(defn insert-front
   "Insert an element at the beginning of the list."
   [{:keys [data size]} new-elt]
-  (List. (Cons. new-elt data) (+ 1 size))) 
+  (List. (Cons. new-elt data) (+ 1 size)))
 
 ;; Here are some utility functions that convert Clojure lists to
 ;; our Cons. record, and vice-versa.  The broke versions will not
@@ -51,7 +51,7 @@
 
 (defn cons-to-list
   [xx]
-  (cond (nil? xx)   '() 
+  (cond (nil? xx)   '()
         :else       (cons (:car xx) (cons-to-list (:cdr xx)))))
 
 ;; The `insert-sorted` function assumes that the elements are orderable
@@ -79,9 +79,22 @@ This is used by `insert-ordered`."
 ;; Test broke-7 will forget to decrement the size.
 ;; Test broke-8 will always decrement the size, even if the element is not found.
 
+(defn deleteH
+[elt xx]
+(cond (empty? xx) nil
+      (= elt (:car xx)) (:cdr xx)
+      :else (Cons. (:car xx) (deleteH elt (:cdr xx)))))
+
+
 (defn delete
   "Delete `elt` from `xx`."
-  [elt xx])
+  [elt xx]
+  (if (empty? (:data xx)) (List. nil 0)
+    (let [lista (deleteH elt (:data xx))]
+    (if (= lista (:data xx)) xx
+    (List. lista (- (:size xx) 1))))))
+
+
 
 ;; The `delete-all` function will delete all copies of elt from xx.
 
@@ -89,6 +102,16 @@ This is used by `insert-ordered`."
 ;; Test broke-10 will decrement the count instead of properly subtracting the
 ;;      number of deletions.
 
+(defn deletallH
+  [elt xx]
+  (cond (empty? xx) nil
+        (= elt (:car xx)) (deletallH elt (:cdr xx))
+  :else (Cons. (:car xx) (deletallH elt (:cdr xx)))))
+
 (defn delete-all
   "Delete all occurrences of `elt` from `xx`."
-  [elt xx])
+  [elt xx]
+  (if (empty? (:data xx)) (List. nil 0)
+    (let [list-answer (deletallH elt (:data xx))]
+  (if (= list-answer (:data xx)) xx
+    (List. list-answer (count (cons-to-list list-answer)))))))
