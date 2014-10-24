@@ -1,0 +1,35 @@
+Assignment Report for Julian A. Dickens
+Assignment: Exam 1 (v1)
+Produced 2014-10-24 13:09
+Netid: jdicken2 cwid: A20301062
+Course: cs331 (2014-08)  Section: 03
+
+  Num  QDB Max Score  Notes 
+----- ---- --- ----- ------ 
+    1 1260   b     3    ab  
+    2 1261   c     4     c  
+    3 1262   b     4     b  
+    4 1263   x     0     c  
+    5 1264   a     4     a  
+    6 1265   b     4     b  
+    7 1266   b     3    bd  
+    8 1267   d     4     d  
+    9 1268   a    -1    bc  
+   10 1269   a    -1    cd  
+   11 126a   c     3    cd  
+   12 126b   d     4     d  
+   13 126c   a     3    ac  
+   14 126d   x     0    ac  
+   15 126e   a     0     d  
+   16 126f   a     0     b  
+   17 1270   a    -1    bc  
+   18 1271   a     0     c  
+   19 1272   b     4     b  
+   20 1273   c     0     d  
+   21 1274   d     4     d  
+   22 1275   b     0     d  
+   23 1276   c     4     c  
+   24 1277   b     3    ab  
+   25 1278   a     0     b  
+----- ---- --- ----- ------ 
+Total       92    48 52.17% 
