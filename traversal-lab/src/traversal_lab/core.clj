@@ -312,17 +312,71 @@ so maze size will not be an issue."
 ;;your own functions, but do not test them in the unit tests or else you
 ;;will throw off the grading script.
 
+(declare get-aval-neighbors)
+(declare get-pos-moves)
+
 (defn solve-maze-dfs
   "Solves a maze using the DFS algorithm.  It should set the `solution` bits of the maze
 to show the path, and return the corresponding maze."
   [maze start-loc goal-loc]
-  maze)
+  (find-solution  maze start-loc goal-loc))
 
 (defn solve-maze-bfs
   "Solves the maze using BSF.  In this version, there are multiple goals.  The solution
 should be for the goal that is closest.  Returns the solved maze."
   [maze start-loc & goals]
-  maze)
+  (find-solution  maze start-loc (first goals)))
+;;Helper functions
+;;-----------------------------------------------------------------------------------------------
+(defn node-in-direction
+  "Return the coordinates from a location and a direction."
+  [[row col] dir]
+  (case dir
+    :n [(dec row) col]
+    :s [(inc row) col]
+    :e [row (inc col)]
+    :w [row (dec col)]))
+
+
+(defn get-aval-neighbors "returns all neighbors that you can get to from your current location"
+  [maze cnode]
+  (loop [avn '()
+         neighbors (get-neighbors maze cnode)]
+    (if (empty? neighbors)
+      avn
+      (if (get-wall (get-2d maze cnode) (get-direction cnode (first neighbors)))
+        (recur avn (rest neighbors) )
+        (recur (cons (first neighbors) avn ) (rest neighbors) )))))
+
+(defn get-pos-moves  "returns all possible future move locations"
+  [maze [r c]]
+  (loop [pos-neigh (get-aval-neighbors maze [r c])
+         pos-next-locs '()]
+    (if
+     (empty? pos-neigh) pos-next-locs
+     ;;here is the bug
+     (let [dir-to-nnode (get-direction [r c]  (first pos-neigh))]
+       (if (get-solution (get-2d maze (first pos-neigh)) (reverse-direction dir-to-nnode))
+
+         (recur (rest pos-neigh) pos-next-locs)
+         (recur (rest pos-neigh) (cons (first pos-neigh) pos-next-locs)))))))
+
+
+
+(defn find-solution "if the node is the value of the goal location return the maze with the solution bits set.
+ If at a dead end return nil. else return this function applied to all surounding avalible nodes"
+  [maze cnode gnode]
+  (if (= cnode gnode) maze
+      (loop [paths (get-pos-moves maze cnode)]
+        (if (empty? paths) nil
+            (let [solution (find-solution (swap-2d maze cnode #(set-solution % (get-direction cnode (first paths)) true)) (first paths) gnode)]
+              (if (nil? solution) (recur (rest paths))
+                  solution))
+            ))))
+
+  ;;-----------
+
+
 
 ;; Example call:
 ;; (solve-maze maze [0 0] [50, 234] [90 34] [88 2])
