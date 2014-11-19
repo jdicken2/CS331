@@ -52,3 +52,5 @@
                      (get-solution end-loc :n)
                      (get-solution end-loc :w))) => false
                )))
+
+

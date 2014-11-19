@@ -2,7 +2,7 @@
 
 ;; This algorithm is pretty standard.  The version used here is
 ;; described at http://mazeworks.com/mazegen/mazetut/index.htm
-
+(declare find-solution)
 ;; ## A note about abstraction
 
 ;; It's possible to build abstractions without objects, and even without
@@ -95,10 +95,12 @@
 
 (defn swap-2d
   "Take 2-D vector `v` with coordinates `x` and `y` and swap the corresponding value using function `f`."
-  [v x y f]
-  (let [content ((v x) y)
-        row (v x)]
-    (assoc v x (assoc row y (f content)))))
+  ( [v x y f]
+      (let [content ((v x) y)
+            row (v x)]
+        (assoc v x (assoc row y (f content)))))
+  ( [v [r c] f]
+      (swap-2d v r c f)))
 
 (defn reset-2d
   "Take 2-D vector `v` with coordinates `x` and `y` and reset the corresponding value using `content`."
@@ -106,10 +108,13 @@
   (let [row (v x)]
     (assoc v x (assoc row y content))))
 
+
 (defn get-2d
   "Return the content of 2-D vector `v` at `x` and `y`."
-  [v x y]
-  ((v x) y))
+  ( [v x y]
+      ((v x) y))
+  ( [v [r c]]
+      (get-2d v r c)))
 
 ;; # Direction functions
 
@@ -169,8 +174,8 @@
   (loop [m m-orig
          r 0]
     (if (< r rows)
-      (recur (-> m (swap-xy r 0 #(set-border % :w true))
-                 (swap-xy r (dec cols) #(set-border % :e true)))
+      (recur (-> m (swap-2d r 0 #(set-border % :w true))
+                 (swap-2d r (dec cols) #(set-border % :e true)))
              (inc r))
       m)))
 
@@ -180,8 +185,8 @@
   (loop [m m-orig
          c 0]
     (if (< c cols)
-      (recur (-> m (swap-xy 0 c #(set-border % :n true))
-                 (swap-xy (dec rows) c #(set-border % :s true)))
+      (recur (-> m (swap-2d 0 c #(set-border % :n true))
+                 (swap-2d (dec rows) c #(set-border % :s true)))
              (inc c))
       m)))
 
@@ -261,7 +266,12 @@ so maze size will not be an issue."
         (if (get-wall (the-row c) :w)
           (print "|")
           (print " "))
-        (print " ")
+        (if (or (get-solution (the-row c) :n)
+                (get-solution (the-row c) :s)
+                (get-solution (the-row c) :e)
+                (get-solution (the-row c) :w))
+          (print "x")
+          (print " "))
         (recur (inc c)))
       (print "|"))))
 
@@ -277,6 +287,7 @@ so maze size will not be an issue."
       (if (< (inc row) (count m))
         (recur (inc row))
         (print-south-wall the-row)))))
+
 
 ;; ### Sample Run
 ;; <pre><code>
@@ -311,7 +322,6 @@ so maze size will not be an issue."
 ;;might be tricky though.  Especially the second one.  Feel free to add
 ;;your own functions, but do not test them in the unit tests or else you
 ;;will throw off the grading script.
-
 (declare get-aval-neighbors)
 (declare get-pos-moves)
 
@@ -375,20 +385,3 @@ should be for the goal that is closest.  Returns the solved maze."
             ))))
 
   ;;-----------
-
-
-
-;; Example call:
-;; (solve-maze maze [0 0] [50, 234] [90 34] [88 2])
-;; goals = '([50 234] [90 34] [88 2])
-
-
-;; ## Extra things
-
-;; Finished the lab early?  Here are things you could do....
-;;
-;; 1. Modify the `show-maze` function to print out the solution path.
-;; 1. Try making mazes with different boudaries by setting the border differently.
-;; 1. You may have to modify `show-maze` again to have it print properly.
-;; 1. Use the ASCII line characters to make the output prettier.  How will you handle
-;;    corners?
