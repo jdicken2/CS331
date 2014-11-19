@@ -1,9 +1,9 @@
 Lab report for Deque Lab - jdicken2
-Timestamp: 2014-11-18 19:40:19
+Timestamp: 2014-11-18 23:25:41
 
 |  :scenario |                                :title |                              :result | :score |
 |------------+---------------------------------------+--------------------------------------+--------|
-|    working | Test student code vs instructor tests |                                 Fail |      9 |
+|    working | Test student code vs instructor tests |                                 Fail |     44 |
 | qualifying | Test student tests vs instructor code |                                 Pass |      5 |
 |    broke-1 |             deque-size only returns 0 | Pass: student tests detected errors. |      5 |
 |    broke-2 |     push-front doesn't increment size | Pass: student tests detected errors. |      5 |
@@ -15,7 +15,7 @@ Timestamp: 2014-11-18 19:40:19
 |    broke-8 |                back doesn't flip list | Pass: student tests detected errors. |      5 |
 |    broke-9 |        front references the back list | Pass: student tests detected errors. |      5 |
 |   broke-10 |               flip-front flips always | Pass: student tests detected errors. |      5 |
-|      total |                           Total Score |                                      |     64 |
+|      total |                           Total Score |                                      |     99 |
 
 Details:
 
@@ -23,465 +23,173 @@ Details:
 ** Details for Test student code vs instructor tests
 
 
-FAIL "about push-front and pop - push-front adds elements to the front." at (t_core.clj:29)
-    Expected: 10
-      Actual: false
-
-FAIL "about push-front and pop - push-front adds elements to the front." at (t_core.clj:32)
-    Expected: 20
-      Actual: false
-
-FAIL "about push-front and pop - push-front adds elements to the front." at (t_core.clj:35)
-    Expected: 34
-      Actual: false
-
-FAIL "about push-front and pop - pop-front removes elements from the front" at (t_core.clj:41)
-    Expected: 2
-      Actual: nil
-
-FAIL "about push-front and pop - pop-front removes elements from the front" at (t_core.clj:42)
-    Expected: (20 10)
-      Actual: nil
-
-FAIL "about push-front and pop - pop-front removes elements from the front" at (t_core.clj:43)
-    Expected: 20
-      Actual: true
-
-FAIL "about push-front and pop - pop-front removes elements from the front" at (t_core.clj:44)
-    Expected: 1
-      Actual: nil
-
-FAIL "about push-front and pop - pop-front removes elements from the front" at (t_core.clj:45)
-    Expected: (10)
-      Actual: nil
-
-FAIL "about push-front and pop - pop-front removes elements from the front" at (t_core.clj:46)
-    Expected: 10
-      Actual: true
-
-FAIL "about push-front and pop - pop-front removes elements from the front" at (t_core.clj:47)
-    Expected: 0
-      Actual: nil
-
-FAIL "about push-front and pop - pop-front removes elements from the front" at (t_core.clj:48)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-front and pop - pop-front removes elements from the front" at (t_core.clj:49)
-    Expected: nil
-      Actual: true
-
-FAIL "about push-front and pop - pop-front removes elements from the front" at (t_core.clj:50)
-    Expected: 0
-      Actual: nil
-
-FAIL "about push-front and pop - pop-front removes elements from the front" at (t_core.clj:51)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-front and pop - pop-front removes elements from the front" at (t_core.clj:52)
-    Expected: nil
-      Actual: true
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:54)
-    Expected: 2
-      Actual: nil
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:55)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:56)
-    Expected: (20 34)
-      Actual: nil
-
 FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:57)
     Expected: 34
-      Actual: true
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:58)
-    Expected: 20
-      Actual: core/flip-front
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:60)
-    Expected: 1
-      Actual: nil
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:61)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:62)
-    Expected: (34)
       Actual: nil
 
 FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:63)
     Expected: 34
-      Actual: true
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:64)
-    Expected: 34
-      Actual: core/flip-front
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:66)
-    Expected: 0
       Actual: nil
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:67)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:68)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:69)
-    Expected: nil
-      Actual: true
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:70)
-    Expected: nil
-      Actual: core/flip-front
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:72)
-    Expected: 0
-      Actual: nil
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:73)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:74)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:75)
-    Expected: nil
-      Actual: true
-
-FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:76)
-    Expected: nil
-      Actual: core/flip-front
-
-FAIL "about push-back and pop - push-back adds elements to the back." at (t_core.clj:93)
-    Expected: (10)
-      Actual: ()
-
-FAIL "about push-back and pop - push-back adds elements to the back." at (t_core.clj:94)
-    Expected: 10
-      Actual: core/flip-front
-
-FAIL "about push-back and pop - push-back adds elements to the back." at (t_core.clj:96)
-    Expected: (20 10)
-      Actual: (10)
-
-FAIL "about push-back and pop - push-back adds elements to the back." at (t_core.clj:97)
-    Expected: 20
-      Actual: core/flip-front
-
-FAIL "about push-back and pop - push-back adds elements to the back." at (t_core.clj:99)
-    Expected: (34 20 10)
-      Actual: (20)
-
-FAIL "about push-back and pop - push-back adds elements to the back." at (t_core.clj:100)
-    Expected: 34
-      Actual: core/flip-front
-
-FAIL "about push-back and pop - push-back doesn't add elements to the front." at (t_core.clj:102)
-    Expected: ()
-      Actual: (10)
-
-FAIL "about push-back and pop - push-back doesn't add elements to the front." at (t_core.clj:103)
-    Expected: ()
-      Actual: (20)
-
-FAIL "about push-back and pop - push-back doesn't add elements to the front." at (t_core.clj:104)
-    Expected: ()
-      Actual: (34 10)
-
-FAIL "about push-back and pop - pop-back removes elements from the back" at (t_core.clj:106)
-    Expected: 2
-      Actual: nil
-
-FAIL "about push-back and pop - pop-back removes elements from the back" at (t_core.clj:107)
-    Expected: (20 10)
-      Actual: nil
-
-FAIL "about push-back and pop - pop-back removes elements from the back" at (t_core.clj:108)
-    Expected: 20
-      Actual: core/flip-front
-
-FAIL "about push-back and pop - pop-back removes elements from the back" at (t_core.clj:109)
-    Expected: 1
-      Actual: nil
-
-FAIL "about push-back and pop - pop-back removes elements from the back" at (t_core.clj:110)
-    Expected: (10)
-      Actual: nil
-
-FAIL "about push-back and pop - pop-back removes elements from the back" at (t_core.clj:111)
-    Expected: 10
-      Actual: core/flip-front
-
-FAIL "about push-back and pop - pop-back removes elements from the back" at (t_core.clj:112)
-    Expected: 0
-      Actual: nil
-
-FAIL "about push-back and pop - pop-back removes elements from the back" at (t_core.clj:113)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-back and pop - pop-back removes elements from the back" at (t_core.clj:114)
-    Expected: nil
-      Actual: core/flip-front
-
-FAIL "about push-back and pop - pop-back removes elements from the back" at (t_core.clj:115)
-    Expected: 0
-      Actual: nil
-
-FAIL "about push-back and pop - pop-back removes elements from the back" at (t_core.clj:116)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-back and pop - pop-back removes elements from the back" at (t_core.clj:117)
-    Expected: nil
-      Actual: core/flip-front
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:119)
-    Expected: 2
-      Actual: nil
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:120)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:121)
-    Expected: (20 34)
-      Actual: nil
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:122)
-    Expected: 34
-      Actual: core/flip-front
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:123)
-    Expected: 20
-      Actual: true
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:125)
-    Expected: 1
-      Actual: nil
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:126)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:127)
-    Expected: (34)
-      Actual: nil
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:128)
-    Expected: 34
-      Actual: core/flip-front
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:129)
-    Expected: 34
-      Actual: true
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:131)
-    Expected: 0
-      Actual: nil
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:132)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:133)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:134)
-    Expected: nil
-      Actual: core/flip-front
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:135)
-    Expected: nil
-      Actual: true
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:137)
-    Expected: 0
-      Actual: nil
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:138)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:139)
-    Expected: ()
-      Actual: nil
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:140)
-    Expected: nil
-      Actual: core/flip-front
-
-FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:141)
-    Expected: nil
-      Actual: true
-
-FAIL "about loading both sides" at (t_core.clj:154)
-    Expected: (10 1 2 3)
-      Actual: (20 4 5 6)
-
-FAIL "about loading both sides" at (t_core.clj:155)
-    Expected: (20 4 5 6)
-      Actual: (10 1 2 3)
-FAILURE: 78 checks failed.  (But 22 succeeded.)
+FAILURE: 2 checks failed.  (But 98 succeeded.)
 Subprocess failed
 
 
 ** Details for Test student tests vs instructor code
 
-All checks (17) succeeded.
+All checks (19) succeeded.
 
 
 ** Details for deque-size only returns 0
 
 
-FAIL "about deque-size - returns size of deque." at (t_core.clj:8)
+FAIL "about deque-size - returns size of deque." at (t_core.clj:9)
     Expected: 2
       Actual: 0
 
-FAIL "about pop-front - Pops/dequeues an element from the front of the deque.." at (t_core.clj:81)
+FAIL "about deque-size - returns size of deque." at (t_core.clj:40)
+    Expected: 2
+      Actual: 0
+
+FAIL "about pop-front - Pops/dequeues an element from the front of the deque.." at (t_core.clj:113)
     Expected: {:back clojure.lang.PersistentList$EmptyList@1, :front (2 1), :size 2}::deque.core.Deque
       Actual: {:back (1 2 3), :front clojure.lang.PersistentList$EmptyList@1, :size 3}::deque.core.Deque
 
-FAIL "about pop-front - Pops/dequeues an element from the front of the deque.." at (t_core.clj:82)
+FAIL "about pop-front - Pops/dequeues an element from the front of the deque.." at (t_core.clj:114)
     Expected: {:back clojure.lang.PersistentList$EmptyList@1, :front (2 3), :size 2}::deque.core.Deque
       Actual: {:back clojure.lang.PersistentList$EmptyList@1, :front (1 2 3), :size 3}::deque.core.Deque
 
-FAIL "about pop-back - Pops/dequeues an element from the back of the deque.." at (t_core.clj:97)
+FAIL "about pop-back - Pops/dequeues an element from the back of the deque.." at (t_core.clj:128)
     Expected: {:back (2 3), :front clojure.lang.PersistentList$EmptyList@1, :size 2}::deque.core.Deque
       Actual: {:back (1 2 3), :front clojure.lang.PersistentList$EmptyList@1, :size 3}::deque.core.Deque
 
-FAIL "about pop-back - Pops/dequeues an element from the back of the deque.." at (t_core.clj:98)
+FAIL "about pop-back - Pops/dequeues an element from the back of the deque.." at (t_core.clj:129)
     Expected: {:back (2 1), :front clojure.lang.PersistentList$EmptyList@1, :size 2}::deque.core.Deque
       Actual: {:back clojure.lang.PersistentList$EmptyList@1, :front (1 2 3), :size 3}::deque.core.Deque
-FAILURE: 5 checks failed.  (But 12 succeeded.)
+FAILURE: 6 checks failed.  (But 13 succeeded.)
 Subprocess failed
 
 
 ** Details for push-front doesn't increment size
 
 
-FAIL "about push-front - Adds an element to the front of the deque." at (t_core.clj:16)
+FAIL "about push-front - Adds an element to the front of the deque." at (t_core.clj:17)
     Expected: {:back (2), :front (1 1), :size 3}::deque.core.Deque
       Actual: {:back (2), :front (1 1), :size 2}::deque.core.Deque
-FAILURE: 1 check failed.  (But 16 succeeded.)
+
+FAIL "about push-front - Adds an element to the front of the deque." at (t_core.clj:48)
+    Expected: {:back (2), :front (1 1), :size 3}::deque.core.Deque
+      Actual: {:back (2), :front (1 1), :size 2}::deque.core.Deque
+FAILURE: 2 checks failed.  (But 17 succeeded.)
 Subprocess failed
 
 
 ** Details for pop-back lets size go negative
 
 
-FAIL "about pop-back - Function does not let the size of the deque become negative" at (t_core.clj:101)
+FAIL "about pop-back - Function does not let the size of the deque become negative" at (t_core.clj:132)
     Expected: {:back clojure.lang.PersistentList$EmptyList@1, :front clojure.lang.PersistentList$EmptyList@1, :size 0}::deque.core.Deque
       Actual: {:back clojure.lang.PersistentList$EmptyList@1, :front clojure.lang.PersistentList$EmptyList@1, :size -1}::deque.core.Deque
-FAILURE: 1 check failed.  (But 16 succeeded.)
+FAILURE: 1 check failed.  (But 18 succeeded.)
 Subprocess failed
 
 
 ** Details for pop-front doesn't dec size
 
 
-FAIL "about pop-front - Pops/dequeues an element from the front of the deque.." at (t_core.clj:81)
+FAIL "about pop-front - Pops/dequeues an element from the front of the deque.." at (t_core.clj:113)
     Expected: {:back clojure.lang.PersistentList$EmptyList@1, :front (2 1), :size 2}::deque.core.Deque
       Actual: {:back clojure.lang.PersistentList$EmptyList@1, :front (2 1), :size 3}::deque.core.Deque
 
-FAIL "about pop-front - Pops/dequeues an element from the front of the deque.." at (t_core.clj:82)
+FAIL "about pop-front - Pops/dequeues an element from the front of the deque.." at (t_core.clj:114)
     Expected: {:back clojure.lang.PersistentList$EmptyList@1, :front (2 3), :size 2}::deque.core.Deque
       Actual: {:back clojure.lang.PersistentList$EmptyList@1, :front (2 3), :size 3}::deque.core.Deque
-FAILURE: 2 checks failed.  (But 15 succeeded.)
+FAILURE: 2 checks failed.  (But 17 succeeded.)
 Subprocess failed
 
 
 ** Details for push-back inserts into front
 
 
-FAIL "about push-front - Adds an element to the back of the deque." at (t_core.clj:25)
+FAIL "about push-front - Adds an element to the back of the deque." at (t_core.clj:26)
     Expected: {:back (1 2), :front (1), :size 3}::deque.core.Deque
       Actual: {:back (2), :front (1 1), :size 3}::deque.core.Deque
-FAILURE: 1 check failed.  (But 16 succeeded.)
+
+FAIL "about push-front - Adds an element to the back of the deque." at (t_core.clj:57)
+    Expected: {:back (1 2), :front (1), :size 3}::deque.core.Deque
+      Actual: {:back (2), :front (1 1), :size 3}::deque.core.Deque
+FAILURE: 2 checks failed.  (But 17 succeeded.)
 Subprocess failed
 
 
 ** Details for flip-front doesn't clear the back
 
 
-FAIL "about flip-front - Flip the back list to the front list, if necessary." at (t_core.clj:36)
+FAIL "about flip-front - Flip the back list to the front list, if necessary." at (t_core.clj:68)
     Expected: {:back clojure.lang.PersistentList$EmptyList@1, :front (1), :size 1}::deque.core.Deque
       Actual: {:back (1), :front (1), :size 1}::deque.core.Deque
 
-FAIL "about pop-front - Pops/dequeues an element from the front of the deque.." at (t_core.clj:81)
+FAIL "about pop-front - Pops/dequeues an element from the front of the deque.." at (t_core.clj:113)
     Expected: {:back clojure.lang.PersistentList$EmptyList@1, :front (2 1), :size 2}::deque.core.Deque
       Actual: {:back (1 2 3), :front (2 1), :size 2}::deque.core.Deque
-FAILURE: 2 checks failed.  (But 15 succeeded.)
+FAILURE: 2 checks failed.  (But 17 succeeded.)
 Subprocess failed
 
 
 ** Details for flip-back doesn't clear the front
 
 
-FAIL "about flip-back - Flip the back list to the back list, if necessary." at (t_core.clj:48)
+FAIL "about flip-back - Flip the back list to the back list, if necessary." at (t_core.clj:80)
     Expected: {:back (1), :front clojure.lang.PersistentList$EmptyList@1, :size 1}::deque.core.Deque
       Actual: {:back (1), :front (1), :size 1}::deque.core.Deque
 
-FAIL "about pop-back - Pops/dequeues an element from the back of the deque.." at (t_core.clj:98)
+FAIL "about pop-back - Pops/dequeues an element from the back of the deque.." at (t_core.clj:129)
     Expected: {:back (2 1), :front clojure.lang.PersistentList$EmptyList@1, :size 2}::deque.core.Deque
       Actual: {:back (2 1), :front (1 2 3), :size 2}::deque.core.Deque
-FAILURE: 2 checks failed.  (But 15 succeeded.)
+FAILURE: 2 checks failed.  (But 17 succeeded.)
 Subprocess failed
 
 
 ** Details for back doesn't flip list
 
 
-FAIL "about back - It will cause a flip if back is empty" at (t_core.clj:69)
+FAIL "about back - It will cause a flip if back is empty" at (t_core.clj:101)
     Expected: 3
       Actual: nil
-FAILURE: 1 check failed.  (But 16 succeeded.)
+FAILURE: 1 check failed.  (But 18 succeeded.)
 Subprocess failed
 
 
 ** Details for front references the back list
 
 
-FAIL "about front - Returns the front element of the deque.  May cause a flip.." at (t_core.clj:56)
+FAIL "about front - Returns the front element of the deque.  May cause a flip.." at (t_core.clj:88)
     Expected: 1
       Actual: 2
 
-FAIL "about front - Returns the front element of the deque.  May cause a flip.." at (t_core.clj:57)
+FAIL "about front - Returns the front element of the deque.  May cause a flip.." at (t_core.clj:89)
     Expected: 1
       Actual: nil
-FAILURE: 2 checks failed.  (But 15 succeeded.)
+FAILURE: 2 checks failed.  (But 17 succeeded.)
 Subprocess failed
 
 
 ** Details for flip-front flips always
 
 
-FAIL "about flip-front - Flip the back list to the front list, if necessary." at (t_core.clj:35)
+FAIL "about flip-front - Flip the back list to the front list, if necessary." at (t_core.clj:67)
     Expected: {:back (2), :front (1), :size 2}::deque.core.Deque
       Actual: {:back clojure.lang.PersistentList$EmptyList@1, :front (2), :size 2}::deque.core.Deque
 
-FAIL "about front - Returns the front element of the deque.  May cause a flip.." at (t_core.clj:56)
+FAIL "about front - Returns the front element of the deque.  May cause a flip.." at (t_core.clj:88)
     Expected: 1
       Actual: 2
 
-FAIL "about front - Returns the front element of the deque.  May cause a flip.." at (t_core.clj:57)
+FAIL "about front - Returns the front element of the deque.  May cause a flip.." at (t_core.clj:89)
     Expected: 1
       Actual: nil
 
-FAIL "about pop-front - Pops/dequeues an element from the front of the deque.." at (t_core.clj:82)
+FAIL "about pop-front - Pops/dequeues an element from the front of the deque.." at (t_core.clj:114)
     Expected: {:back clojure.lang.PersistentList$EmptyList@1, :front (2 3), :size 2}::deque.core.Deque
       Actual: {:back clojure.lang.PersistentList$EmptyList@1, :front clojure.lang.PersistentList$EmptyList@1, :size 2}::deque.core.Deque
-FAILURE: 4 checks failed.  (But 13 succeeded.)
+FAILURE: 4 checks failed.  (But 15 succeeded.)
 Subprocess failed
