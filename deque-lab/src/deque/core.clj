@@ -23,57 +23,60 @@
 (defn push-back
   "Adds an element to the back fo the deque."
   [dq elt]
-  (let [{:keys [front back size]} dq]
-    (Deque. (cons elt back) front (inc size)))
+ (let [{:keys [front back size]} dq]
+    (Deque. front (cons elt back)  (inc size)))
  )
 
 (defn flip-front
   "Flip the back list to the front list, if necessary."
   [dq]
   (let [{:keys [front back size]} dq]
-  (Deque. (concat (reverse back) front) ' () size)))
+    (cond (empty? front) (Deque. (reverse back) '()  size)
+          :else dq)))
+
+
 
 (defn flip-back
   "Flip the front list to the back list, if necessary."
   [dq]
   (let [{:keys [front back size]} dq]
-  (Deque. ' () (concat (reverse front) back) size)))
+    (cond (empty? back) (Deque. '() (reverse front)  size)
+          :else dq)))
 
 
 (defn front
   "Return the front element of the deque.  May cause a flip."
   [dq]
-  (let [{:keys [front back size]} dq]
-  (cond (= size 0) nil)
-         (empty? (seq (rest dq))) flip-front
-         (empty? (seq (first dq)))))  flip-back
-
-
-(def x (Deque. '(1 2 3 4) '(5 6) 7))
-(front [x])
-
-
+ (let [{:keys [front back size]} dq]
+   (cond (empty? front) (first (:front (flip-front dq))))
+   :else (first (:front dq)))
+)
 
 
 (defn back
   "Return the back element of the deque.  May cause a flip."
   [dq]
   (let [{:keys [front back size]} dq]
-  (cond (= size 0) nil)
-         (empty? (seq (first dq))) flip-back
-         (empty? (seq (rest dq))) flip-front
-))
+   (cond (empty? back) (first (:back (flip-back dq)))
+   :else (first (:back dq))))
+)
+
+
 
 (defn pop-front
   "Pops/dequeues an element from the front of the deque."
   [dq]
-   (let [{:keys [front back size]} dq])
+  (let [{:keys [front back size]} dq]
+    (cond (= (:size dq) 0) dq
+          :else (Deque. (rest (:front (flip-front dq))) (:back (flip-front dq)) (dec size)))))
 
-
-)
 
 (defn pop-back
   "Pops/dequeues an element from the back of the deque."
   [dq]
-  (let [{:keys [front back size]} dq])
-)
+  (let [{:keys [front back size]} dq]
+    (cond (= (:size dq) 0) dq
+          :else (Deque. (:front (flip-back dq)) (rest (:back (flip-back dq))) (dec size))
+       )
+     )
+  )

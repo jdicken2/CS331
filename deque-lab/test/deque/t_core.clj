@@ -2,6 +2,38 @@
   (:use midje.sweet)
   (:use [deque.core])
   (:import [deque.core Deque] ))
+
+(facts "about deque-size"
+       (let [a (Deque. '(1) '(2) 2)]
+       (fact "returns size of deque."
+             (deque-size a) => 2
+       )
+))
+
+
+(facts "about push-front"
+       (let [a (Deque. '(1) '(2) 2)]
+       (fact "Adds an element to the front of the deque."
+             (push-front a 1) => (Deque. '(1 1) '(2) 3)
+       )
+))
+
+
+
+(facts "about push-front"
+       (let [a (Deque. '(1) '(2) 2)]
+       (fact "Adds an element to the back of the deque."
+             (push-back a 1) => (Deque. '(1) '(1 2) 3)
+       )
+))
+
+
+
+(ns deque.t-core
+  (:use midje.sweet)
+  (:use [deque.core])
+  (:import [deque.core Deque] ))
+
 (facts "about deque-size"
        (let [a (Deque. '(1) '(2) 2)]
        (fact "returns size of deque."
@@ -83,8 +115,7 @@
        )
 ))
 
-;(def z (Deque. '(1 2 3) '() 3 ))
-;(pop-back z)
+
 
 
 
@@ -100,8 +131,3 @@
        (fact "Function does not let the size of the deque become negative"
              (pop-back a) => (Deque. '() '() 0))
 ))
-
-
-(facts "about this lab"
-  (fact "the student never started it."
-        (+ 1 2)  => 3))
