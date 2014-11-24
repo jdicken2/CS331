@@ -40,7 +40,7 @@ this is part of the implementation, not for public consumption."
         (throw (Exception. (str "Get called with " loc " but last vector slot is " (dec (count (:data heap))))))
 
         :otherwise
-        (Heap. (:size heap) (assoc-in heap [:data loc] value))))
+        (assoc (:data heap) loc value)))
 
 (defn heap-left
   "Return the left index."
