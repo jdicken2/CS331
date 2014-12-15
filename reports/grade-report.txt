@@ -1,0 +1,17 @@
+Grade Report for Julian A. Dickens
+Produced 2014-12-15 10:55
+Netid: jdicken2 cwid: A20301062
+Course: cs331 (2014-08)  Section: 03
+
+     Assignment   Status Raw Max    Norm Weight  Points 
+--------------- -------- --- --- ------- ------ ------- 
+    Exam 1 (v1) Replaced n/a  92  75.50% 0.2500 18.8750 
+    Exam 2 (v2)   Graded  78  84  92.86% 0.2500 23.2143 
+Final Exam (v1)   Graded 151 200  75.50% 0.2500 18.8750 
+    Initial Lab  Dropped   0 100   0.00% 0.0000  0.0000 
+Linked List Lab   Graded 100 100 100.00% 0.0625  6.2500 
+  Traversal Lab   Graded  90 100  90.00% 0.0625  5.6250 
+      Deque Lab   Graded  99 100  99.00% 0.0625  6.1875 
+       Heap Lab   Graded   5 100   5.00% 0.0625  0.3125 
+--------------- -------- --- --- ------- ------ ------- 
+          Total                   79.34% 1.0000 79.3393 
